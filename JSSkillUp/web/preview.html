@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Превью</title>
+    <!--
+      Рантайм React-задач. Открывается только внутри sandbox-iframe без allow-same-origin:
+      у кода пользователя нет доступа к странице приложения, её localStorage и cookies.
+      Базовые стили — чтобы голая разметка из задачи выглядела аккуратно в обеих темах.
+    -->
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #ffffff;
+        --fg: #111827;
+        --muted: #64748b;
+        --line: #e2e6f0;
+        --accent: #4f46e5;
+        --danger: #dc2626;
+        --panel: #f1f3f9;
+      }
+      :root[data-theme='dark'] {
+        color-scheme: dark;
+        --bg: #131a2e;
+        --fg: #e8ecf6;
+        --muted: #8f9cb8;
+        --line: #263049;
+        --accent: #818cf8;
+        --danger: #f87171;
+        --panel: #1a2138;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--bg); color: var(--fg); }
+      body { font: 14px/1.5 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; padding: 16px; }
+      h1, h2, h3 { margin: 0 0 12px; line-height: 1.25; }
+      p { margin: 0 0 8px; }
+      ul, ol { padding-left: 20px; margin: 0 0 8px; }
+      button, input, select, textarea { font: inherit; color: inherit; }
+      button {
+        cursor: pointer; padding: 6px 12px; margin: 2px; border-radius: 8px;
+        border: 1px solid var(--line); background: var(--panel);
+      }
+      button:hover:not(:disabled) { border-color: var(--accent); }
+      button:disabled { opacity: 0.5; cursor: not-allowed; }
+      input:not([type='checkbox']):not([type='radio']), select, textarea {
+        padding: 6px 10px; margin: 2px; border-radius: 8px;
+        border: 1px solid var(--line); background: var(--bg);
+      }
+      input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible {
+        outline: 2px solid var(--accent); outline-offset: 1px;
+      }
+      label { margin-right: 6px; }
+      #__overlay {
+        position: fixed; inset: 0; overflow: auto; padding: 16px; display: none;
+        background: var(--bg); color: var(--danger);
+        font: 12px/1.5 ui-monospace, 'Cascadia Code', Consolas, monospace; white-space: pre-wrap;
+      }
+      #__overlay strong { display: block; margin-bottom: 8px; font-size: 13px; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="__overlay"></div>
+    <script type="module" src="/src/preview/runtime.ts"></script>
+  </body>
+</html>

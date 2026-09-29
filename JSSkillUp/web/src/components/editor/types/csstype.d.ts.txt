@@ -1,0 +1,5 @@
+// Заглушка csstype для редактора: настоящий пакет весит почти мегабайт,
+// а @types/react берёт из него только Properties.
+export interface Properties<TLength = (string & {}) | 0, TTime = string & {}> {
+  [property: string]: string | number | undefined;
+}

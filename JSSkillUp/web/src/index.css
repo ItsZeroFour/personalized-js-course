@@ -1,0 +1,97 @@
+@import 'tailwindcss';
+
+/* Тёмная тема переключается классом на <html>, а не системной настройкой. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --c-bg: #f6f7fb;
+  --c-panel: #ffffff;
+  --c-panel-2: #f1f3f9;
+  --c-border: #e2e6f0;
+  --c-fg: #111827;
+  --c-muted: #64748b;
+  --c-accent: #4f46e5;
+  --c-accent-soft: #e0e7ff;
+  --c-accent-fg: #ffffff;
+  --c-success: #16a34a;
+  --c-success-soft: #dcfce7;
+  --c-warning: #d97706;
+  --c-warning-soft: #fef3c7;
+  --c-danger: #dc2626;
+  --c-danger-soft: #fee2e2;
+  --c-code-bg: #f8fafc;
+}
+
+.dark {
+  --c-bg: #0b1020;
+  --c-panel: #131a2e;
+  --c-panel-2: #1a2138;
+  --c-border: #263049;
+  --c-fg: #e8ecf6;
+  --c-muted: #8f9cb8;
+  --c-accent: #818cf8;
+  --c-accent-soft: #272e50;
+  --c-accent-fg: #0b1020;
+  --c-success: #4ade80;
+  --c-success-soft: #14321f;
+  --c-warning: #fbbf24;
+  --c-warning-soft: #362708;
+  --c-danger: #f87171;
+  --c-danger-soft: #3a1618;
+  --c-code-bg: #0f1526;
+}
+
+@theme inline {
+  --color-bg: var(--c-bg);
+  --color-panel: var(--c-panel);
+  --color-panel-2: var(--c-panel-2);
+  --color-line: var(--c-border);
+  --color-fg: var(--c-fg);
+  --color-muted: var(--c-muted);
+  --color-accent: var(--c-accent);
+  --color-accent-soft: var(--c-accent-soft);
+  --color-accent-fg: var(--c-accent-fg);
+  --color-success: var(--c-success);
+  --color-success-soft: var(--c-success-soft);
+  --color-warning: var(--c-warning);
+  --color-warning-soft: var(--c-warning-soft);
+  --color-danger: var(--c-danger);
+  --color-danger-soft: var(--c-danger-soft);
+  --color-code-bg: var(--c-code-bg);
+
+  --font-sans:
+    'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono:
+    'JetBrains Mono', 'Cascadia Code', ui-monospace, 'SF Mono', Consolas, monospace;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--c-bg);
+  color: var(--c-fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--c-border);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}

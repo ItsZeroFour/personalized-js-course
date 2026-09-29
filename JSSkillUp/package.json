@@ -1,0 +1,38 @@
+{
+  "name": "jsskillup",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Локальное приложение для подготовки к собеседованиям на React Middle",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "workspaces": [
+    "shared",
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,web -c cyan,magenta \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:server": "npm run dev -w server",
+    "dev:web": "npm run dev -w web",
+    "build": "npm run build -w web",
+    "db:migrate": "npm run migrate -w server",
+    "db:seed": "npm run seed -w server",
+    "db:reset": "npm run reset -w server",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "eslint .",
+    "validate:tasks": "npm run validate:tasks -w server"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.39.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}
